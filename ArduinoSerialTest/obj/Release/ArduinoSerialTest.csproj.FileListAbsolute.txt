@@ -1,0 +1,8 @@
+C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\bin\Release\ArduinoSerialTest.exe.config
+C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\bin\Release\ArduinoSerialTest.exe
+C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\bin\Release\ArduinoSerialTest.pdb
+C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\obj\Release\ArduinoSerialTest.ArduinoForm.resources
+C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\obj\Release\ArduinoSerialTest.Properties.Resources.resources
+C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\obj\Release\ArduinoSerialTest.csproj.GenerateResource.Cache
+C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\obj\Release\ArduinoSerialTest.exe
+C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\obj\Release\ArduinoSerialTest.pdb
