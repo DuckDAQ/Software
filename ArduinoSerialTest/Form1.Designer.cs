@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.connectBtn = new System.Windows.Forms.Button();
             this.comPort = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.baudRate = new System.Windows.Forms.ComboBox();
             this.portsRefresh = new System.Windows.Forms.Button();
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -127,10 +125,6 @@
             this.portsRefresh.Text = "Refresh";
             this.portsRefresh.UseVisualStyleBackColor = true;
             this.portsRefresh.Click += new System.EventHandler(this.portsRefresh_Click);
-            // 
-            // serialPort1
-            // 
-            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
             // richTextBox1
             // 
@@ -481,7 +475,6 @@
         private System.Windows.Forms.TextBox ledNumTextBox;
         private System.Windows.Forms.TextBox ledStateTextBox;
         private System.Windows.Forms.Button portsRefresh;
-        private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
