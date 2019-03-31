@@ -57,6 +57,8 @@ namespace ArduinoSerialTest
 
                 serialPort.Open();
                 Log("Port opened: "+ serialPort.IsOpen);
+
+                serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
             }
             catch (Exception ex)
             {
@@ -77,8 +79,12 @@ namespace ArduinoSerialTest
 
         private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e) //onDataReceived
         {
-            SerialPort sp = (SerialPort)sender;
-            Log(sp.ReadExisting());
+            char[] buf = new char[serialPort.ReadBufferSize];
+            serialPort.Read(buf, 0, serialPort.ReadBufferSize);
+            string strBuf = new string(buf);
+            this.Invoke((MethodInvoker)delegate {
+                Log(strBuf.ToString()); // runs on UI thread
+            });
         }
 
         private void button1_Click(object sender, EventArgs e) //ascii
