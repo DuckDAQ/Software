@@ -106,11 +106,9 @@
             // 
             this.baudRate.FormattingEnabled = true;
             this.baudRate.Items.AddRange(new object[] {
-            "9600",
+            "115200",
             "19200",
-            "38400",
-            "57600",
-            "115200"});
+            "9600"});
             this.baudRate.Location = new System.Drawing.Point(444, 16);
             this.baudRate.Name = "baudRate";
             this.baudRate.Size = new System.Drawing.Size(133, 21);

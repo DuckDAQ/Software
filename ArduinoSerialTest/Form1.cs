@@ -79,11 +79,8 @@ namespace ArduinoSerialTest
 
         private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e) //onDataReceived
         {
-            char[] buf = new char[serialPort.ReadBufferSize];
-            serialPort.Read(buf, 0, serialPort.ReadBufferSize);
-            string strBuf = new string(buf);
             this.Invoke((MethodInvoker)delegate {
-                Log(strBuf.ToString()); // runs on UI thread
+                Log(serialPort.ReadExisting()); // runs on UI thread
             });
         }
 
