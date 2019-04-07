@@ -86,35 +86,35 @@ namespace ArduinoSerialTest
 
         private void button1_Click(object sender, EventArgs e) //ascii
         {
-            serialPort.Write("S");
+            serialPort.Write("S\n\r");
         }
         private void button2_Click(object sender, EventArgs e) //prekini vzorcenje
         {
-            serialPort.Write("T");
+            serialPort.Write("T\n\r");
         }
         private void button3_Click(object sender, EventArgs e) //nastavi periodo
         {
-            serialPort.Write("R " + numericUpDown1.Value);
+            serialPort.Write("R " + numericUpDown1.Value + "\n\r");
         }
         private void button4_Click(object sender, EventArgs e) //st vzorcev za povprecenje
         {
-            serialPort.Write("A " + numericUpDown2.Value);
+            serialPort.Write("A " + numericUpDown2.Value + "\n\r");
         }
         private void button5_Click(object sender, EventArgs e) //st zaporednih meritev
         {
-            serialPort.Write("F " + numericUpDown3.Value);
+            serialPort.Write("F " + numericUpDown3.Value + "\n\r");
         }
         private void button6_Click(object sender, EventArgs e) //nastavitev zaporedje kanalov
         {
-            serialPort.Write("E " + numericUpDown4.Value);
+            serialPort.Write("E " + numericUpDown4.Value + "\n\r");
         }
         private void button7_Click(object sender, EventArgs e) //nastavi vrednost analognega izhoda
         {
-            serialPort.Write("D " + numericUpDown5.Value);
+            serialPort.Write("D " + numericUpDown5.Value + "\n\r");
         }
         private void button8_Click(object sender, EventArgs e) //binarni nacin
         {
-            serialPort.Write("s");
+            serialPort.Write("s\n\r");
         }
 
 
