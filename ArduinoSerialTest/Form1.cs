@@ -27,6 +27,7 @@ namespace ArduinoSerialTest
             refreshComPortBox();
             comPort.SelectedIndex = comPort.Items.Count - 1;
             baudRate.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 0;
         }
 
         private void refreshComPortBox ()
@@ -59,9 +60,26 @@ namespace ArduinoSerialTest
                 Log("Port opened: "+ serialPort.IsOpen);
 
                 serialPort.DataReceived += new SerialDataReceivedEventHandler(serialPort_DataReceived);
+
+                button1.Enabled = true;
+                button2.Enabled = true;
+                button3.Enabled = true;
+                button4.Enabled = true;
+                button5.Enabled = true;
+                button6.Enabled = true;
+                button7.Enabled = true;
+                button8.Enabled = true;
             }
             catch (Exception ex)
             {
+                button1.Enabled = false;
+                button2.Enabled = false;
+                button3.Enabled = false;
+                button4.Enabled = false;
+                button5.Enabled = false;
+                button6.Enabled = false;
+                button7.Enabled = false;
+                button8.Enabled = false;
                 MessageBox.Show("Error opening serial port: " + ex.Message);
                 Log(ex.Message);
             }
@@ -106,11 +124,11 @@ namespace ArduinoSerialTest
         }
         private void button6_Click(object sender, EventArgs e) //nastavitev zaporedje kanalov
         {
-            serialPort.Write("E " + numericUpDown4.Value + "\n\r");
+            serialPort.Write("E " + comboBox1.Text + "\n\r");
         }
         private void button7_Click(object sender, EventArgs e) //nastavi vrednost analognega izhoda
         {
-            serialPort.Write("D " + numericUpDown5.Value + "\n\r");
+            serialPort.Write("D " + numericUpDown4.Value + ", " + numericUpDown5.Value + "\n\r");
         }
         private void button8_Click(object sender, EventArgs e) //binarni nacin
         {
