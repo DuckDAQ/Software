@@ -298,9 +298,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(598, 451);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(102, 13);
+            this.label12.Size = new System.Drawing.Size(22, 13);
             this.label12.TabIndex = 33;
-            this.label12.Text = "mV (offset of 10000)";
+            this.label12.Text = "mV";
             // 
             // numericUpDown1
             // 
@@ -324,7 +324,7 @@
             this.numericUpDown1.Size = new System.Drawing.Size(100, 20);
             this.numericUpDown1.TabIndex = 34;
             this.numericUpDown1.Value = new decimal(new int[] {
-            10,
+            1000,
             0,
             0,
             0});
@@ -382,15 +382,20 @@
             0});
             this.numericUpDown5.Location = new System.Drawing.Point(492, 449);
             this.numericUpDown5.Maximum = new decimal(new int[] {
-            20000,
+            10000,
             0,
             0,
             0});
+            this.numericUpDown5.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
             this.numericUpDown5.Name = "numericUpDown5";
             this.numericUpDown5.Size = new System.Drawing.Size(100, 20);
             this.numericUpDown5.TabIndex = 38;
             this.numericUpDown5.Value = new decimal(new int[] {
-            10000,
+            5000,
             0,
             0,
             0});
