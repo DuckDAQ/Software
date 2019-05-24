@@ -298,9 +298,10 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(598, 451);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(22, 13);
+            this.label12.Size = new System.Drawing.Size(14, 13);
             this.label12.TabIndex = 33;
-            this.label12.Text = "mV";
+            this.label12.Text = "V";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // numericUpDown1
             // 
@@ -375,27 +376,28 @@
             // 
             // numericUpDown5
             // 
+            this.numericUpDown5.DecimalPlaces = 3;
             this.numericUpDown5.Increment = new decimal(new int[] {
-            100,
+            47,
             0,
             0,
-            0});
+            262144});
             this.numericUpDown5.Location = new System.Drawing.Point(492, 449);
             this.numericUpDown5.Maximum = new decimal(new int[] {
-            10000,
+            968,
             0,
             0,
-            0});
+            131072});
             this.numericUpDown5.Minimum = new decimal(new int[] {
-            10000,
+            974,
             0,
             0,
-            -2147483648});
+            -2147352576});
             this.numericUpDown5.Name = "numericUpDown5";
             this.numericUpDown5.Size = new System.Drawing.Size(100, 20);
             this.numericUpDown5.TabIndex = 38;
             this.numericUpDown5.Value = new decimal(new int[] {
-            5000,
+            2,
             0,
             0,
             0});
@@ -497,11 +499,6 @@
             // 
             this.numericUpDown4.Location = new System.Drawing.Point(358, 449);
             this.numericUpDown4.Maximum = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
-            this.numericUpDown4.Minimum = new decimal(new int[] {
             1,
             0,
             0,
@@ -509,11 +506,6 @@
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(100, 20);
             this.numericUpDown4.TabIndex = 42;
-            this.numericUpDown4.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // label15
             // 
