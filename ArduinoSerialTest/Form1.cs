@@ -135,7 +135,12 @@ namespace ArduinoSerialTest
         }
         private void button7_Click(object sender, EventArgs e) //nastavi vrednost analognega izhoda
         {
-            serialPort.Write("D " + numericUpDown4.Value + ", " + numericUpDown5.Value + "\n\r");
+            float voltage = (float)Convert.ToDecimal(numericUpDown5.Value);
+            //0 = -9.74V
+            //4095 = 9.68V
+            //delta(1) = 4.74mV
+            int bin = (int)Math.Round((voltage + 9.74) / 0.00474);
+            serialPort.Write("D " + numericUpDown4.Value + ", " + bin.ToString() + "\n\r");
         }
         private void button8_Click(object sender, EventArgs e) //binarni nacin
         {
@@ -206,6 +211,11 @@ namespace ArduinoSerialTest
             {
                 if (comboBox1.Text[i] == '0') numOfCh--;
             }
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

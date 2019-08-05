@@ -47,3 +47,13 @@ F:\Users\Luka\Documents\Šola\Osnove mikroprocesorske elektronike\win-forms-daq\
 F:\Users\Luka\Documents\Šola\Osnove mikroprocesorske elektronike\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.CoreCompileInputs.cache
 F:\Users\Luka\Documents\Šola\Osnove mikroprocesorske elektronike\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.exe
 F:\Users\Luka\Documents\Šola\Osnove mikroprocesorske elektronike\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.pdb
+C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe.config
+C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe
+C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.pdb
+C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csprojAssemblyReference.cache
+C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.ArduinoForm.resources
+C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.Properties.Resources.resources
+C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.GenerateResource.cache
+C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.CoreCompileInputs.cache
+C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.exe
+C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.pdb
