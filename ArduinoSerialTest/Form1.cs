@@ -16,6 +16,8 @@ namespace ArduinoSerialTest
     {
 
         SerialPort serialPort;
+        float totalBytes;
+        byte numOfCh = 4;
 
         public ArduinoForm()
         {
@@ -28,6 +30,10 @@ namespace ArduinoSerialTest
             comPort.SelectedIndex = comPort.Items.Count - 1;
             baudRate.SelectedIndex = 0;
             comboBox1.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 0;
+            comboBoxADCgainCH.SelectedIndex = 0;
+            comboBoxADCgain.SelectedIndex = 1;
+            comboBoxRes.SelectedIndex = 1;
         }
 
         private void refreshComPortBox ()
@@ -69,6 +75,9 @@ namespace ArduinoSerialTest
                 button6.Enabled = true;
                 button7.Enabled = true;
                 button8.Enabled = true;
+                button9.Enabled = true;
+                button10.Enabled = true;
+                buttonBlockSize.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -80,14 +89,12 @@ namespace ArduinoSerialTest
                 button6.Enabled = false;
                 button7.Enabled = false;
                 button8.Enabled = false;
+                button9.Enabled = false;
+                button10.Enabled = false;
+                buttonBlockSize.Enabled = false;
                 MessageBox.Show("Error opening serial port: " + ex.Message);
                 Log(ex.Message);
             }
-        }
-
-        private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         private void portsRefresh_Click(object sender, EventArgs e)
@@ -132,12 +139,73 @@ namespace ArduinoSerialTest
         }
         private void button8_Click(object sender, EventArgs e) //binarni nacin
         {
-            serialPort.Write("s\n\r");
+            serialPort.Write("M " + comboBox2.SelectedIndex + "\n\r");
         }
 
-
         private void Log(string logMsg) {
-            richTextBox1.Text = richTextBox1.Text.Insert(0, DateTime.Now.ToShortTimeString() + ": " + logMsg);
+            //richTextBox1.Text = richTextBox1.Text.Insert(0, DateTime.Now.ToShortTimeString() + ": " + logMsg);
+            totalBytes += logMsg.Length;
+            richTextBox1.Text = richTextBox1.Text.Insert(0, logMsg);
+            //richTextBox1.Text = logMsg;
+        }
+
+        private void ArduinoForm_Leave(object sender, EventArgs e)
+        {
+            serialPort.DataReceived -= new SerialDataReceivedEventHandler(serialPort_DataReceived);
+            if (serialPort.IsOpen)
+            {
+                serialPort.Write("T\n\r");
+                serialPort.Close();
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            serialPort.Write("G " + comboBoxADCgainCH.Text + ", " + comboBoxADCgain.SelectedIndex + "\n\r");
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            serialPort.Write("L " + comboBoxRes.SelectedIndex + "\n\r");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            labelSpeed.Text = (totalBytes/1024.0).ToString("#0.00") + " kB/s";
+
+            if(comboBox2.SelectedIndex > 0)
+            {
+                if(numericUpDown2.Value > 1)
+                {
+                    UInt16 mesCount = (UInt16)(((UInt16)numericUpDownBlockSize.Value / 4) / (UInt16)numericUpDown2.Value);
+                    labelSampleRate.Text = ((totalBytes * (numOfCh * mesCount)) / ((numOfCh * mesCount) * 2) + 2).ToString("#0.00") + " S/s";
+                }
+                else
+                {
+                    labelSampleRate.Text = ((totalBytes * (float)(numericUpDownBlockSize.Value)) / ((float)(numericUpDownBlockSize.Value * 2) + 2.0)).ToString("#0") + " S/s";
+                }
+            }
+            else
+            {
+                labelSampleRate.Text = ((totalBytes * numOfCh) / 64.0).ToString("#0.00") + " S/s";
+            }
+            
+            totalBytes = 0;
+        }
+
+        private void buttonBlockSize_Click(object sender, EventArgs e)
+        {
+            serialPort.Write("B " + numericUpDownBlockSize.Value + "\n\r");
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            numOfCh = 4;
+
+            for(byte i = 0; i < comboBox1.Text.Length; i++)
+            {
+                if (comboBox1.Text[i] == '0') numOfCh--;
+            }
         }
     }
 }
