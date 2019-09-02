@@ -212,10 +212,5 @@ namespace ArduinoSerialTest
                 if (comboBox1.Text[i] == '0') numOfCh--;
             }
         }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

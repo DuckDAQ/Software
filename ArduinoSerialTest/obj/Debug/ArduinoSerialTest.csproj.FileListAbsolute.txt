@@ -1,59 +1,20 @@
-c:\users\markoh\documents\visual studio 2015\Projects\ArduinoSerialTest\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe.config
-C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe.config
-C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe
-C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.pdb
-C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csprojResolveAssemblyReference.cache
-C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.Properties.Resources.resources
-C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.GenerateResource.Cache
-C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.exe
-C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.pdb
-C:\Users\Luka\Desktop\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.ArduinoForm.resources
-F:\Users\Luka\Documents\Visual Studio 2015\Projects\ArduinoSerialTest\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe.config
-F:\Users\Luka\Documents\Visual Studio 2015\Projects\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.exe
-F:\Users\Luka\Documents\Visual Studio 2015\Projects\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.pdb
-F:\Users\Luka\Documents\Visual Studio 2015\Projects\ArduinoSerialTest\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe
-F:\Users\Luka\Documents\Visual Studio 2015\Projects\ArduinoSerialTest\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.pdb
-F:\Users\Luka\Documents\Visual Studio 2015\Projects\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csprojResolveAssemblyReference.cache
-F:\Users\Luka\Documents\Visual Studio 2015\Projects\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.ArduinoForm.resources
-F:\Users\Luka\Documents\Visual Studio 2015\Projects\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.Properties.Resources.resources
-F:\Users\Luka\Documents\Visual Studio 2015\Projects\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.GenerateResource.Cache
-C:\Users\proq1\Documents\SW\ArduinoSerialTest\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe.config
-C:\Users\proq1\Documents\SW\ArduinoSerialTest\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe
-C:\Users\proq1\Documents\SW\ArduinoSerialTest\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.pdb
-C:\Users\proq1\Documents\SW\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csprojAssemblyReference.cache
-C:\Users\proq1\Documents\SW\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.ArduinoForm.resources
-C:\Users\proq1\Documents\SW\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.Properties.Resources.resources
-C:\Users\proq1\Documents\SW\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.GenerateResource.cache
-C:\Users\proq1\Documents\SW\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.CoreCompileInputs.cache
-C:\Users\proq1\Documents\SW\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.exe
-C:\Users\proq1\Documents\SW\ArduinoSerialTest\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.pdb
-C:\Users\proq1\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe.config
-C:\Users\proq1\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe
-C:\Users\proq1\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.pdb
-C:\Users\proq1\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csprojAssemblyReference.cache
-C:\Users\proq1\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.ArduinoForm.resources
-C:\Users\proq1\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.Properties.Resources.resources
-C:\Users\proq1\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.GenerateResource.cache
-C:\Users\proq1\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.CoreCompileInputs.cache
-C:\Users\proq1\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.exe
-C:\Users\proq1\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.pdb
-F:\Users\Luka\Documents\Šola\Osnove mikroprocesorske elektronike\win-forms-daq\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe.config
-F:\Users\Luka\Documents\Šola\Osnove mikroprocesorske elektronike\win-forms-daq\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe
-F:\Users\Luka\Documents\Šola\Osnove mikroprocesorske elektronike\win-forms-daq\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.pdb
-F:\Users\Luka\Documents\Šola\Osnove mikroprocesorske elektronike\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csprojResolveAssemblyReference.cache
-F:\Users\Luka\Documents\Šola\Osnove mikroprocesorske elektronike\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.ArduinoForm.resources
-F:\Users\Luka\Documents\Šola\Osnove mikroprocesorske elektronike\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.Properties.Resources.resources
-F:\Users\Luka\Documents\Šola\Osnove mikroprocesorske elektronike\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.GenerateResource.Cache
-F:\Users\Luka\Documents\Šola\Osnove mikroprocesorske elektronike\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.CoreCompileInputs.cache
-F:\Users\Luka\Documents\Šola\Osnove mikroprocesorske elektronike\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.exe
-F:\Users\Luka\Documents\Šola\Osnove mikroprocesorske elektronike\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.pdb
-C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe.config
-C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe
-C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.pdb
-C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csprojAssemblyReference.cache
-C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.ArduinoForm.resources
-C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.Properties.Resources.resources
-C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.GenerateResource.cache
-C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.CoreCompileInputs.cache
-C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.exe
-C:\Users\erikk\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.pdb
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe.config
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.exe
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\ArduinoSerialTest.pdb
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csprojAssemblyReference.cache
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.ArduinoForm.resources
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.Properties.Resources.resources
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.GenerateResource.cache
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.CoreCompileInputs.cache
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.exe
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.pdb
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.dll
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.pdb
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.xml
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.CopyComplete
