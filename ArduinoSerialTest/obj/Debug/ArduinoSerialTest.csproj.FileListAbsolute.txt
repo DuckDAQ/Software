@@ -8,13 +8,3 @@ C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSeri
 C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.CoreCompileInputs.cache
 C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.exe
 C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.pdb
-C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.dll
-C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.WinForms.dll
-C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.Wpf.dll
-C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.pdb
-C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.xml
-C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.WinForms.pdb
-C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.WinForms.xml
-C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.Wpf.pdb
-C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\bin\Debug\LiveCharts.Wpf.xml
-C:\Users\Erik\Documents\SW\win-forms-daq\ArduinoSerialTest\obj\Debug\ArduinoSerialTest.csproj.CopyComplete

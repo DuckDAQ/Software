@@ -18,7 +18,18 @@ namespace ArduinoSerialTest
         SerialPort serialPort;
         float totalBytes;
         byte numOfCh = 4;
-
+        //For sending DAC LookUpTable values
+        bool SendingLut = false;
+        List<int> LutVals = new List<int>();
+        int LutLength = 0;
+        int LutChannel = 0;
+        //For recieving ADC values in BIN mode
+        List<byte> serialBuffer = new List<byte>();
+        bool newAdcVals = false;
+        //For Chart 
+        System.Timers.Timer ChartT;
+        long TimerTicks;
+        long LastTicks;
         public ArduinoForm()
         {
             InitializeComponent();
@@ -78,6 +89,12 @@ namespace ArduinoSerialTest
                 button9.Enabled = true;
                 button10.Enabled = true;
                 buttonBlockSize.Enabled = true;
+                button11.Enabled = true;
+                button12.Enabled = true;
+                button13.Enabled = true;
+                button14.Enabled = true;
+                button16.Enabled = true;
+                button17.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -92,6 +109,12 @@ namespace ArduinoSerialTest
                 button9.Enabled = false;
                 button10.Enabled = false;
                 buttonBlockSize.Enabled = false;
+                button11.Enabled = false;
+                button12.Enabled = false;
+                button13.Enabled = false;
+                button14.Enabled = false;
+                button16.Enabled = false;
+                button17.Enabled = false;
                 MessageBox.Show("Error opening serial port: " + ex.Message);
                 Log(ex.Message);
             }
@@ -104,14 +127,81 @@ namespace ArduinoSerialTest
 
         private void serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e) //onDataReceived
         {
+            //string msg = serialPort.ReadExisting();
+            //char[] charArr = msg.ToCharArray();
+            //this.Invoke((MethodInvoker)delegate { Log(msg); });
+            
+            int bytesToRead = serialPort.BytesToRead;
+            var serialBuffer = new byte[bytesToRead];
+            serialPort.Read(serialBuffer, 0, bytesToRead);
+            if (bytesToRead == 2) { //Could be Sync bytes
+                if (serialBuffer[0] == 159 && serialBuffer[1] == 163) { //sync bytes
+                    newAdcVals = true;
+                    return;
+                }
+            }
+            if (newAdcVals) { //Get values
+                newAdcVals = false;
+                List<AdcMeasurement> AdcList = new List<AdcMeasurement>();
+
+                for (int i = 0; i < serialBuffer.Length; i += 2) { //create short value from two bytes
+                    short num = (short)((serialBuffer[i+1] << 8) | serialBuffer[i]);
+                    AdcList.Add(new AdcMeasurement()
+                    {
+                        value = (short)(num & 0b111111111111),
+                        channel = (byte)(num >> 12)
+                    });
+                }
+                PopulateChart(AdcList);
+                return;
+            }
+
+
+            //Msg pipeline
+            //var bytes = Encoding.Default.GetBytes(msg);
+            //Add pipeline for ADC values to chart, no need to print them to Log
+            string msg = System.Text.Encoding.ASCII.GetString(serialBuffer).Trim();
+
+            if (msg.Contains('$')) { //DAQ can accept new LUT valu
+                if(msg.Contains("LUT")) this.Invoke((MethodInvoker)delegate { Log(msg); });
+                if (LutVals.Count > 0)
+                {
+                    string write = $"J {LutChannel}, {LutLength - LutVals.Count}, {LutVals.ElementAt(0)}\n\r";
+                    serialPort.Write(write);
+                    this.Invoke((MethodInvoker)delegate { Log(write); });
+                    LutVals.RemoveAt(0);
+                    
+                }
+                else { //setting LUT values has finished.
+                    LutVals = new List<int>();
+                    SendingLut = false;
+                    LutLength = 0;
+                    this.Invoke((MethodInvoker)delegate { button12.Enabled = true; });
+                    LutChannel = 0;
+                    this.Invoke((MethodInvoker)delegate {
+                        Log("Setting LUT values has finished!"); // runs on UI thread
+                    });
+                }
+                return;
+            }
+            
             this.Invoke((MethodInvoker)delegate {
-                Log(serialPort.ReadExisting()); // runs on UI thread
+                Log(msg); // runs on UI thread
             });
         }
 
         private void button1_Click(object sender, EventArgs e) //ascii
         {
+            TimerTicks = 0;
+            ChartT = new System.Timers.Timer();
+            ChartT.Elapsed += Timer_Tick;
+            ChartT.Interval = 10;
+            ChartT.Start();
+
             serialPort.Write("S\n\r");
+        }
+        private void Timer_Tick(object sender, EventArgs e) {
+            TimerTicks++;
         }
         private void button2_Click(object sender, EventArgs e) //prekini vzorcenje
         {
@@ -150,7 +240,7 @@ namespace ArduinoSerialTest
         private void Log(string logMsg) {
             //richTextBox1.Text = richTextBox1.Text.Insert(0, DateTime.Now.ToShortTimeString() + ": " + logMsg);
             totalBytes += logMsg.Length;
-            richTextBox1.Text = richTextBox1.Text.Insert(0, logMsg);
+            richTextBox1.Text = richTextBox1.Text.Insert(0, logMsg+"\n");
             //richTextBox1.Text = logMsg;
         }
 
@@ -211,6 +301,96 @@ namespace ArduinoSerialTest
             {
                 if (comboBox1.Text[i] == '0') numOfCh--;
             }
+        }
+
+        private void Button14_Click(object sender, EventArgs e) //Start DAC
+        {
+
+        }
+
+        private void Button17_Click(object sender, EventArgs e) //Stop DAC
+        {
+
+        }
+
+        private void Button13_Click(object sender, EventArgs e) //set DAC Lut repeats
+        {
+
+        }
+
+        private void Button16_Click(object sender, EventArgs e) //Set DAC freq
+        {
+
+        }
+
+        private void Button12_Click(object sender, EventArgs e) //Send LUT
+        {
+            var vals = richTextBox2.Text.Split(',');
+            if (vals.Length > 1024) {
+                Log($"Error! Number of LUT values{vals.Length} exceeded the maximum of 1024!");
+                richTextBox2.Text = "";
+                return;
+            }
+            LutLength = (int)vals.Length;
+            //button12.Enabled = false; //Lock this button untill all values have been sent to uC
+            SendingLut = true;
+            LutChannel = (int.Parse(comboBox5.Text));
+            foreach (var val in vals) {
+                if (int.TryParse(val.Trim(), out var valInt)) LutVals.Add(valInt);
+            }
+            richTextBox2.Text = "";
+            Log($"Will write {LutLength} LUT values to DAQ");
+            //First send LUT length command. After that, send LUT values
+            serialPort.Write("N " + LutChannel + ", " + LutLength + "\n\r");
+        }
+
+        private void Button11_Click(object sender, EventArgs e) //DAC channel sequence
+        {
+
+        }
+        private void PopulateChart(List<AdcMeasurement> list) {
+            //Najprej najstarejsega poslje, seprau na koncu lista je najstarejsi 
+            for (byte ch = 0; ch < 7; ch += 2) {
+                var chVals = list.Where(x => x.channel == ch).ToList();
+                if(chVals.Count == 0) break;
+                if (LastTicks == 0)
+                {
+                    //First measurement, only show newest values
+                    this.Invoke((MethodInvoker)delegate { chart1.Series[ch / 2].Points.AddXY(TimerTicks, AdcToVoltage(chVals.Last().value)); });
+                    
+                }
+                else {
+                    var deltaTicks = (TimerTicks - LastTicks) / chVals.Count;
+                    for (byte i = 0; i < chVals.Count; i++) {
+                        this.Invoke((MethodInvoker)delegate { chart1.Series[ch / 2].Points.AddXY(LastTicks + i * deltaTicks, AdcToVoltage(chVals[i].value)); });
+                    }
+                }
+
+                //Remove outdated values
+                this.Invoke((MethodInvoker)delegate {
+                    int cnt = chart1.Series[ch / 2].Points.Count;
+                    if (cnt > 100) //TODO: make this val changable
+                        for(int i = 0; i < cnt-100; i++)
+                            chart1.Series[ch / 2].Points.RemoveAt(i);
+                });
+   
+            }
+            this.Invoke((MethodInvoker)delegate {
+                chart1.ChartAreas[0].AxisX.Minimum = chart1.Series[0].Points[0].XValue;
+                chart1.ChartAreas[0].AxisX.Maximum = TimerTicks;
+            });
+            
+            LastTicks = TimerTicks;
+        }
+        int AdcToVoltage(int measurment) {
+            measurment *= 20000;
+            measurment /= 4095;
+            measurment = 10000 - measurment;
+            return measurment;
+        }
+        class AdcMeasurement {
+            public short value { get; set; }
+            public byte channel { get; set; }
         }
     }
 }
