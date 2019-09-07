@@ -30,6 +30,7 @@ namespace ArduinoSerialTest
         System.Timers.Timer ChartT;
         long TimerTicks;
         long LastTicks;
+        UInt64 time = 0;
         public ArduinoForm()
         {
             InitializeComponent();
@@ -132,6 +133,8 @@ namespace ArduinoSerialTest
             //this.Invoke((MethodInvoker)delegate { Log(msg); });
             
             int bytesToRead = serialPort.BytesToRead;
+            totalBytes += bytesToRead;
+            this.Invoke((MethodInvoker)delegate { Log(bytesToRead.ToString()); });
             var serialBuffer = new byte[bytesToRead];
             serialPort.Read(serialBuffer, 0, bytesToRead);
             if (bytesToRead == 2) { //Could be Sync bytes
@@ -239,7 +242,6 @@ namespace ArduinoSerialTest
 
         private void Log(string logMsg) {
             //richTextBox1.Text = richTextBox1.Text.Insert(0, DateTime.Now.ToShortTimeString() + ": " + logMsg);
-            totalBytes += logMsg.Length;
             richTextBox1.Text = richTextBox1.Text.Insert(0, logMsg+"\n");
             //richTextBox1.Text = logMsg;
         }
@@ -348,46 +350,55 @@ namespace ArduinoSerialTest
         {
 
         }
+
         private void PopulateChart(List<AdcMeasurement> list) {
             //Najprej najstarejsega poslje, seprau na koncu lista je najstarejsi 
-            for (byte ch = 0; ch < 7; ch += 2) {
+            for (byte ch = 0; ch < 7; ch += 2)
+            {
+                if (ch == 0) time += (UInt64)numericUpDown1.Value;
+
                 var chVals = list.Where(x => x.channel == ch).ToList();
-                if(chVals.Count == 0) break;
+                if (chVals.Count == 0) break;
+
                 if (LastTicks == 0)
                 {
                     //First measurement, only show newest values
-                    this.Invoke((MethodInvoker)delegate { chart1.Series[ch / 2].Points.AddXY(TimerTicks, AdcToVoltage(chVals.Last().value)); });
-                    
+                    this.Invoke((MethodInvoker)delegate { chart1.Series[ch / 2].Points.AddXY(time/100, AdcToVoltage(chVals.Last().value)); });
                 }
-                else {
-                    var deltaTicks = (TimerTicks - LastTicks) / chVals.Count;
-                    for (byte i = 0; i < chVals.Count; i++) {
-                        this.Invoke((MethodInvoker)delegate { chart1.Series[ch / 2].Points.AddXY(LastTicks + i * deltaTicks, AdcToVoltage(chVals[i].value)); });
+                else
+                {
+                    //var deltaTicks = (TimerTicks - LastTicks) / chVals.Count;
+                    for (byte i = 0; i < chVals.Count; i++)
+                    {
+                        this.Invoke((MethodInvoker)delegate { chart1.Series[ch / 2].Points.AddXY(time/100, AdcToVoltage(chVals[i].value)); });
                     }
                 }
 
                 //Remove outdated values
                 this.Invoke((MethodInvoker)delegate {
                     int cnt = chart1.Series[ch / 2].Points.Count;
-                    if (cnt > 100) //TODO: make this val changable
-                        for(int i = 0; i < cnt-100; i++)
+                    if (cnt > (numericUpDownBlockSize.Value * 4)) 
+                        for(int i = 0; i < (cnt- (numericUpDownBlockSize.Value * 4)); i++)
                             chart1.Series[ch / 2].Points.RemoveAt(i);
                 });
    
             }
             this.Invoke((MethodInvoker)delegate {
                 chart1.ChartAreas[0].AxisX.Minimum = chart1.Series[0].Points[0].XValue;
-                chart1.ChartAreas[0].AxisX.Maximum = TimerTicks;
+                //chart1.ChartAreas[0].AxisX.Maximum = TimerTicks;
+                chart1.ChartAreas[0].AxisX.Maximum = time/100;
             });
             
-            LastTicks = TimerTicks;
+            //LastTicks = TimerTicks;
         }
+
         int AdcToVoltage(int measurment) {
             measurment *= 20000;
             measurment /= 4095;
             measurment = 10000 - measurment;
             return measurment;
         }
+
         class AdcMeasurement {
             public short value { get; set; }
             public byte channel { get; set; }
