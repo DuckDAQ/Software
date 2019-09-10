@@ -24,8 +24,8 @@ namespace ArduinoSerialTest
         int LutLength = 0;
         int LutChannel = 0;
         //For recieving ADC values in BIN mode
-        List<byte> serialBuffer = new List<byte>();
-        bool newAdcVals = false;
+        List<byte> serialList = new List<byte>();
+        short blockSize;
         //For Chart 
         System.Timers.Timer ChartT;
         long TimerTicks;
@@ -134,44 +134,46 @@ namespace ArduinoSerialTest
             
             int bytesToRead = serialPort.BytesToRead;
             totalBytes += bytesToRead;
-            this.Invoke((MethodInvoker)delegate { Log(bytesToRead.ToString()); });
             var serialBuffer = new byte[bytesToRead];
             serialPort.Read(serialBuffer, 0, bytesToRead);
-            if (bytesToRead == 2) { //Could be Sync bytes
-                if (serialBuffer[0] == 159 && serialBuffer[1] == 163) { //sync bytes
-                    newAdcVals = true;
+
+            foreach (byte byt in serialBuffer) //add all incoming bytes to the serialList
+            {
+                serialList.Add(byt);
+            }
+
+            if (bytesToRead == 2) return; //Sync bytes got sent. Will have to wait for ADC bytes packet.
+
+            for (int i = 0; i < serialList.Count - 1 - blockSize; i++)
+            {
+                if (serialList[i] >> 7 == 1 && serialList[i + 1] >> 7 == 1) //Search for sync bytes
+                {
+                    //Remove all bytes before the sync bytes ??
+                    blockSize = (short)(serialList[i] & 0b0000000001111111); //First 7 bits
+                    blockSize |= (short)((serialList[i + 1] & 0b1111111) << 7); //Second 7 bits
+                    if (serialList.Count >= i + 1 + blockSize)
+                    {
+                        DecodeBytes(serialList.GetRange(i + 2, blockSize)); //Decode block of bytes
+                        serialList.RemoveRange(0, i + 2 + blockSize); //Delete sync+block bytes
+                    }
+                    else {
+                        //delete all bytes before sync bytes
+                        serialList.RemoveRange(0, i);
+                    }
                     return;
                 }
             }
-            if (newAdcVals) { //Get values
-                newAdcVals = false;
-                List<AdcMeasurement> AdcList = new List<AdcMeasurement>();
 
-                for (int i = 0; i < serialBuffer.Length; i += 2) { //create short value from two bytes
-                    short num = (short)((serialBuffer[i+1] << 8) | serialBuffer[i]);
-                    AdcList.Add(new AdcMeasurement()
-                    {
-                        value = (short)(num & 0b111111111111),
-                        channel = (byte)(num >> 12)
-                    });
-                }
-                PopulateChart(AdcList);
-                return;
-            }
-
-
-            //Msg pipeline
-            //var bytes = Encoding.Default.GetBytes(msg);
-            //Add pipeline for ADC values to chart, no need to print them to Log
             string msg = System.Text.Encoding.ASCII.GetString(serialBuffer).Trim();
 
+            //For setting LUT values for ADC
             if (msg.Contains('$')) { //DAQ can accept new LUT valu
                 if(msg.Contains("LUT")) this.Invoke((MethodInvoker)delegate { Log(msg); });
                 if (LutVals.Count > 0)
                 {
                     string write = $"J {LutChannel}, {LutLength - LutVals.Count}, {LutVals.ElementAt(0)}\n\r";
                     serialPort.Write(write);
-                    this.Invoke((MethodInvoker)delegate { Log(write); });
+                    //this.Invoke((MethodInvoker)delegate { Log(write); });
                     LutVals.RemoveAt(0);
                     
                 }
@@ -191,6 +193,21 @@ namespace ArduinoSerialTest
             this.Invoke((MethodInvoker)delegate {
                 Log(msg); // runs on UI thread
             });
+        }
+
+        private void DecodeBytes(List<byte> serialBuffer) {
+            List<AdcMeasurement> AdcList = new List<AdcMeasurement>();
+
+            for (int i = 0; i < serialBuffer.Count - 1; i += 2)
+            { //create short value from two bytes
+                short num = (short)((serialBuffer[i + 1] << 8) | serialBuffer[i]);
+                AdcList.Add(new AdcMeasurement()
+                {
+                    value = (short)(num & 0b111111111111),
+                    channel = (byte)(num >> 12)
+                });
+            }
+            PopulateChart(AdcList);
         }
 
         private void button1_Click(object sender, EventArgs e) //ascii
@@ -317,7 +334,7 @@ namespace ArduinoSerialTest
 
         private void Button13_Click(object sender, EventArgs e) //set DAC Lut repeats
         {
-
+            serialPort.Write($"C {comboBox4.Text}, {numericUpDown6.Value}\n\r");
         }
 
         private void Button16_Click(object sender, EventArgs e) //Set DAC freq
@@ -343,12 +360,13 @@ namespace ArduinoSerialTest
             richTextBox2.Text = "";
             Log($"Will write {LutLength} LUT values to DAQ");
             //First send LUT length command. After that, send LUT values
-            serialPort.Write("N " + LutChannel + ", " + LutLength + "\n\r");
+            string msg = "N " + LutChannel + ", " + LutLength + "\n\r";
+            serialPort.Write(msg);
         }
 
         private void Button11_Click(object sender, EventArgs e) //DAC channel sequence
         {
-
+            serialPort.Write($"I {comboBox3.Text}\n\r");
         }
 
         private void PopulateChart(List<AdcMeasurement> list) {
