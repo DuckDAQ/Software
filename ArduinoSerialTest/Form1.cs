@@ -45,7 +45,6 @@ namespace ArduinoSerialTest
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 1;
             comboBox3.SelectedIndex = 0;
-            comboBox4.SelectedIndex = 0;
             comboBox5.SelectedIndex = 0;
             comboBoxADCgainCH.SelectedIndex = 0;
             comboBoxADCgain.SelectedIndex = 1;
@@ -89,7 +88,6 @@ namespace ArduinoSerialTest
                 button4.Enabled = true;
                 button5.Enabled = true;
                 button6.Enabled = true;
-                button7.Enabled = true;
                 button8.Enabled = true;
                 button9.Enabled = true;
                 button10.Enabled = true;
@@ -109,7 +107,6 @@ namespace ArduinoSerialTest
                 button4.Enabled = false;
                 button5.Enabled = false;
                 button6.Enabled = false;
-                button7.Enabled = false;
                 button8.Enabled = false;
                 button9.Enabled = false;
                 button10.Enabled = false;
@@ -234,24 +231,13 @@ namespace ArduinoSerialTest
         {
             serialPort.Write("E " + comboBox1.Text + "\n\r");
         }
-        private void button7_Click(object sender, EventArgs e) //nastavi vrednost analognega izhoda
-        {
-            float voltage = (float)Convert.ToDecimal(numericUpDown5.Value);
-            //0 = -9.74V
-            //4095 = 9.68V
-            //delta(1) = 4.74mV
-            int bin = (int)Math.Round((voltage + 9.74) / 0.00474);
-            serialPort.Write("D " + numericUpDown4.Value + ", " + bin.ToString() + "\n\r");
-        }
         private void button8_Click(object sender, EventArgs e) //binarni nacin
         {
             serialPort.Write("M " + comboBox2.SelectedIndex + "\n\r");
         }
 
         private void Log(string logMsg) {
-            //richTextBox1.Text = richTextBox1.Text.Insert(0, DateTime.Now.ToShortTimeString() + ": " + logMsg);
             richTextBox1.Text = richTextBox1.Text.Insert(0, logMsg+"\n");
-            //richTextBox1.Text = logMsg;
         }
 
         private void ArduinoForm_Leave(object sender, EventArgs e)
