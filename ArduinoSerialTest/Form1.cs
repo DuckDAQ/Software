@@ -23,8 +23,9 @@ namespace ArduinoSerialTest
         List<int> LutVals = new List<int>();
         int LutLength = 0;
         int LutChannel = 0;
+        bool LutEvenIndexes = false;
         //For recieving ADC values in BIN mode
-        List<byte> serialBuffer = new List<byte>();
+        List<byte> serialList = new List<byte>();
         bool newAdcVals = false;
         //For Chart 
         System.Timers.Timer ChartT;
@@ -42,7 +43,10 @@ namespace ArduinoSerialTest
             comPort.SelectedIndex = comPort.Items.Count - 1;
             baudRate.SelectedIndex = 0;
             comboBox1.SelectedIndex = 0;
-            comboBox2.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 1;
+            comboBox3.SelectedIndex = 0;
+            comboBox4.SelectedIndex = 0;
+            comboBox5.SelectedIndex = 0;
             comboBoxADCgainCH.SelectedIndex = 0;
             comboBoxADCgain.SelectedIndex = 1;
             comboBoxRes.SelectedIndex = 1;
@@ -134,11 +138,11 @@ namespace ArduinoSerialTest
             
             int bytesToRead = serialPort.BytesToRead;
             totalBytes += bytesToRead;
-            this.Invoke((MethodInvoker)delegate { Log(bytesToRead.ToString()); });
+            //this.Invoke((MethodInvoker)delegate { Log(bytesToRead.ToString()); });
             var serialBuffer = new byte[bytesToRead];
             serialPort.Read(serialBuffer, 0, bytesToRead);
             if (bytesToRead == 2) { //Could be Sync bytes
-                if (serialBuffer[0] == 159 && serialBuffer[1] == 163) { //sync bytes
+                if (serialBuffer[0] >> 7 == 1 && serialBuffer[1] >> 7 == 1){ //Search for sync bytes
                     newAdcVals = true;
                     return;
                 }
@@ -169,7 +173,11 @@ namespace ArduinoSerialTest
                 if(msg.Contains("LUT")) this.Invoke((MethodInvoker)delegate { Log(msg); });
                 if (LutVals.Count > 0)
                 {
-                    string write = $"J {LutChannel}, {LutLength - LutVals.Count}, {LutVals.ElementAt(0)}\n\r";
+                    int value = LutVals.ElementAt(0);
+                    if (LutChannel == 2) value |= (1 << 12); //For channel selection, set channel selection bit (bits 12:15)
+                    int location = (LutLength - LutVals.Count)*2;
+                    if (!LutEvenIndexes) location += 1; //If odd index was set, add 1 to location
+                    string write = $"J {location}, {value}\n\r";
                     serialPort.Write(write);
                     this.Invoke((MethodInvoker)delegate { Log(write); });
                     LutVals.RemoveAt(0);
@@ -337,18 +345,14 @@ namespace ArduinoSerialTest
             //button12.Enabled = false; //Lock this button untill all values have been sent to uC
             SendingLut = true;
             LutChannel = (int.Parse(comboBox5.Text));
+            LutEvenIndexes = comboBox3.SelectedIndex == 0;
             foreach (var val in vals) {
                 if (int.TryParse(val.Trim(), out var valInt)) LutVals.Add(valInt);
             }
-            richTextBox2.Text = "";
+            //richTextBox2.Text = "";
             Log($"Will write {LutLength} LUT values to DAQ");
             //First send LUT length command. After that, send LUT values
-            serialPort.Write("N " + LutChannel + ", " + LutLength + "\n\r");
-        }
-
-        private void Button11_Click(object sender, EventArgs e) //DAC channel sequence
-        {
-
+            serialPort.Write("N " + LutLength*2 + "\n\r");
         }
 
         private void PopulateChart(List<AdcMeasurement> list) {
@@ -402,6 +406,14 @@ namespace ArduinoSerialTest
         class AdcMeasurement {
             public short value { get; set; }
             public byte channel { get; set; }
+        }
+
+        private void Button11_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show( 
+                "Vedno zapišemo v DAC 2 vrednosti (par) iz LUT tabele, sodo in liho. Najprej bo DAC pretvoril sodo, takoj zatem (~20 clock cycles) bo pretvoril liho vrednost.",
+                "Pozicija v LUT tabeli",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

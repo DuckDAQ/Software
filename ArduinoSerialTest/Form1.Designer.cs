@@ -39,6 +39,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
             this.button14 = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -64,8 +66,6 @@
             this.button12 = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.button11 = new System.Windows.Forms.Button();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
@@ -144,7 +144,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(850, 605);
+            this.tabControl1.Size = new System.Drawing.Size(873, 605);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -166,13 +166,15 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(842, 579);
+            this.tabPage1.Size = new System.Drawing.Size(865, 579);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel3.Controls.Add(this.button11);
+            this.panel3.Controls.Add(this.label20);
             this.panel3.Controls.Add(this.button14);
             this.panel3.Controls.Add(this.label26);
             this.panel3.Controls.Add(this.label27);
@@ -198,13 +200,30 @@
             this.panel3.Controls.Add(this.button12);
             this.panel3.Controls.Add(this.label21);
             this.panel3.Controls.Add(this.richTextBox2);
-            this.panel3.Controls.Add(this.label20);
-            this.panel3.Controls.Add(this.button11);
             this.panel3.Controls.Add(this.comboBox3);
             this.panel3.Location = new System.Drawing.Point(536, 83);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(282, 493);
+            this.panel3.Size = new System.Drawing.Size(310, 493);
             this.panel3.TabIndex = 81;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(286, 172);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(21, 23);
+            this.button11.TabIndex = 96;
+            this.button11.Text = "?";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.Button11_Click_1);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(204, 177);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(76, 13);
+            this.label20.TabIndex = 95;
+            this.label20.Text = "Pozicija v LUT";
             // 
             // button14
             // 
@@ -398,7 +417,7 @@
             this.comboBox5.Items.AddRange(new object[] {
             "1",
             "2"});
-            this.comboBox5.Location = new System.Drawing.Point(116, 174);
+            this.comboBox5.Location = new System.Drawing.Point(123, 191);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(50, 21);
             this.comboBox5.TabIndex = 76;
@@ -467,7 +486,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(143, 160);
+            this.label22.Location = new System.Drawing.Point(148, 177);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(22, 13);
             this.label22.TabIndex = 63;
@@ -476,7 +495,7 @@
             // button12
             // 
             this.button12.Enabled = false;
-            this.button12.Location = new System.Drawing.Point(17, 175);
+            this.button12.Location = new System.Drawing.Point(17, 192);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(75, 23);
             this.button12.TabIndex = 63;
@@ -487,7 +506,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(9, 160);
+            this.label21.Location = new System.Drawing.Point(9, 177);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(113, 13);
             this.label21.TabIndex = 51;
@@ -495,43 +514,21 @@
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(11, 203);
+            this.richTextBox2.Location = new System.Drawing.Point(7, 220);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(258, 121);
+            this.richTextBox2.Size = new System.Drawing.Size(296, 137);
             this.richTextBox2.TabIndex = 45;
             this.richTextBox2.Text = "";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(8, 338);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(133, 13);
-            this.label20.TabIndex = 42;
-            this.label20.Text = "Nastavi zaporedje kanalov";
-            // 
-            // button11
-            // 
-            this.button11.Enabled = false;
-            this.button11.Location = new System.Drawing.Point(11, 354);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 43;
-            this.button11.Text = "SEND";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.Button11_Click);
             // 
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
-            "1, 2",
-            "2, 1",
-            "1, 0",
-            "2, 0"});
-            this.comboBox3.Location = new System.Drawing.Point(95, 356);
+            "Sodi indexi",
+            "Lihi indexi"});
+            this.comboBox3.Location = new System.Drawing.Point(197, 191);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(100, 21);
+            this.comboBox3.Size = new System.Drawing.Size(84, 21);
             this.comboBox3.TabIndex = 44;
             // 
             // panel2
@@ -1158,10 +1155,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 605);
+            this.ClientSize = new System.Drawing.Size(873, 605);
             this.Controls.Add(this.tabControl1);
             this.Name = "ArduinoForm";
-            this.Text = "Arduino Test";
+            this.Text = "OpenDAQ";
             this.Load += new System.EventHandler(this.ArduinoForm_Load);
             this.Leave += new System.EventHandler(this.ArduinoForm_Leave);
             this.tabControl1.ResumeLayout(false);
@@ -1203,8 +1200,6 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button button11;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button5;
@@ -1266,6 +1261,8 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Label label20;
     }
 }
 
