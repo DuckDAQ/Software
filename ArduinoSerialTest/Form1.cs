@@ -421,13 +421,5 @@ namespace ArduinoSerialTest
             public short value { get; set; }
             public byte channel { get; set; }
         }
-
-        private void Button15_Click(object sender, EventArgs e)
-        {
-            chart1.Series[0].Points.Clear();
-            chart1.Series[1].Points.Clear();
-            chart1.Series[2].Points.Clear();
-            chart1.Series[3].Points.Clear();
-        }
     }
 }
