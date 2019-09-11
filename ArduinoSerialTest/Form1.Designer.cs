@@ -29,27 +29,33 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel3 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel1 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
+            this.label32 = new System.Windows.Forms.Label();
+            this.button16 = new System.Windows.Forms.Button();
+            this.label31 = new System.Windows.Forms.Label();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button15 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
-            this.button14 = new System.Windows.Forms.Button();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.button17 = new System.Windows.Forms.Button();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
-            this.label31 = new System.Windows.Forms.Label();
-            this.button16 = new System.Windows.Forms.Button();
-            this.label32 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
             this.label23 = new System.Windows.Forms.Label();
@@ -106,16 +112,12 @@
             this.connectBtn = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.button7 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button15 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.button18 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlockSize)).BeginInit();
@@ -125,7 +127,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -169,91 +170,21 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             // 
-            // panel3
+            // panel4
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel3.Controls.Add(this.comboBox4);
-            this.panel3.Controls.Add(this.label9);
-            this.panel3.Controls.Add(this.button15);
-            this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.button7);
-            this.panel3.Controls.Add(this.button11);
-            this.panel3.Controls.Add(this.label20);
-            this.panel3.Controls.Add(this.comboBox5);
-            this.panel3.Controls.Add(this.numericUpDown6);
-            this.panel3.Controls.Add(this.label23);
-            this.panel3.Controls.Add(this.button13);
-            this.panel3.Controls.Add(this.label25);
-            this.panel3.Controls.Add(this.label22);
-            this.panel3.Controls.Add(this.button12);
-            this.panel3.Controls.Add(this.label21);
-            this.panel3.Controls.Add(this.richTextBox2);
-            this.panel3.Controls.Add(this.comboBox3);
-            this.panel3.Location = new System.Drawing.Point(536, 205);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(310, 371);
-            this.panel3.TabIndex = 81;
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(286, 76);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(21, 23);
-            this.button11.TabIndex = 96;
-            this.button11.Text = "?";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.Button11_Click_1);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(204, 81);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(76, 13);
-            this.label20.TabIndex = 95;
-            this.label20.Text = "Pozicija v LUT";
-            // 
-            // button14
-            // 
-            this.button14.Enabled = false;
-            this.button14.Location = new System.Drawing.Point(42, 32);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(75, 23);
-            this.button14.TabIndex = 91;
-            this.button14.Text = "SEND";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.Button14_Click);
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(34, 17);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(98, 13);
-            this.label26.TabIndex = 92;
-            this.label26.Text = "Začni vzorčenje";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(145, 16);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(105, 13);
-            this.label27.TabIndex = 93;
-            this.label27.Text = "Prekini vzorčenje";
-            // 
-            // button17
-            // 
-            this.button17.Enabled = false;
-            this.button17.Location = new System.Drawing.Point(156, 32);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(75, 23);
-            this.button17.TabIndex = 94;
-            this.button17.Text = "SEND";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.Button17_Click);
+            this.panel4.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel4.Controls.Add(this.numericUpDown8);
+            this.panel4.Controls.Add(this.label32);
+            this.panel4.Controls.Add(this.button16);
+            this.panel4.Controls.Add(this.label31);
+            this.panel4.Controls.Add(this.button14);
+            this.panel4.Controls.Add(this.button17);
+            this.panel4.Controls.Add(this.label27);
+            this.panel4.Controls.Add(this.label26);
+            this.panel4.Location = new System.Drawing.Point(536, 84);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(307, 116);
+            this.panel4.TabIndex = 95;
             // 
             // numericUpDown8
             // 
@@ -282,14 +213,14 @@
             0,
             0});
             // 
-            // label31
+            // label32
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(17, 73);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(67, 13);
-            this.label31.TabIndex = 87;
-            this.label31.Text = "DAC perioda";
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(225, 90);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(18, 13);
+            this.label32.TabIndex = 89;
+            this.label32.Text = "μs";
             // 
             // button16
             // 
@@ -302,14 +233,151 @@
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.Button16_Click);
             // 
-            // label32
+            // label31
             // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(225, 90);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(18, 13);
-            this.label32.TabIndex = 89;
-            this.label32.Text = "μs";
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(17, 73);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(67, 13);
+            this.label31.TabIndex = 87;
+            this.label31.Text = "DAC perioda";
+            // 
+            // button14
+            // 
+            this.button14.Enabled = false;
+            this.button14.Location = new System.Drawing.Point(42, 32);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(75, 23);
+            this.button14.TabIndex = 91;
+            this.button14.Text = "SEND";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.Button14_Click);
+            // 
+            // button17
+            // 
+            this.button17.Enabled = false;
+            this.button17.Location = new System.Drawing.Point(156, 32);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(75, 23);
+            this.button17.TabIndex = 94;
+            this.button17.Text = "SEND";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.Button17_Click);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(145, 16);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(105, 13);
+            this.label27.TabIndex = 93;
+            this.label27.Text = "Prekini vzorčenje";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(34, 17);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(98, 13);
+            this.label26.TabIndex = 92;
+            this.label26.Text = "Začni vzorčenje";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel3.Controls.Add(this.button18);
+            this.panel3.Controls.Add(this.comboBox4);
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.button15);
+            this.panel3.Controls.Add(this.label12);
+            this.panel3.Controls.Add(this.button7);
+            this.panel3.Controls.Add(this.button11);
+            this.panel3.Controls.Add(this.label20);
+            this.panel3.Controls.Add(this.comboBox5);
+            this.panel3.Controls.Add(this.numericUpDown6);
+            this.panel3.Controls.Add(this.label23);
+            this.panel3.Controls.Add(this.button13);
+            this.panel3.Controls.Add(this.label25);
+            this.panel3.Controls.Add(this.label22);
+            this.panel3.Controls.Add(this.button12);
+            this.panel3.Controls.Add(this.label21);
+            this.panel3.Controls.Add(this.richTextBox2);
+            this.panel3.Controls.Add(this.comboBox3);
+            this.panel3.Location = new System.Drawing.Point(536, 205);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(310, 371);
+            this.panel3.TabIndex = 81;
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "Halfmode (en kanal)",
+            "Fullmode (oba kanala)"});
+            this.comboBox4.Location = new System.Drawing.Point(150, 340);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(123, 21);
+            this.comboBox4.TabIndex = 101;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(186, 324);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(34, 13);
+            this.label9.TabIndex = 100;
+            this.label9.Text = "Mode";
+            // 
+            // button15
+            // 
+            this.button15.Enabled = false;
+            this.button15.Location = new System.Drawing.Point(15, 340);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(75, 23);
+            this.button15.TabIndex = 98;
+            this.button15.Text = "SEND";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.Button15_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(16, 324);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(96, 13);
+            this.label12.TabIndex = 99;
+            this.label12.Text = "DAC transfer mode";
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(14, 288);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(127, 23);
+            this.button7.TabIndex = 97;
+            this.button7.Text = "1000 vrednosti sinusa";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.Button7_Click);
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(286, 76);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(21, 23);
+            this.button11.TabIndex = 96;
+            this.button11.Text = "?";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.Button11_Click_1);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(204, 81);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(76, 13);
+            this.label20.TabIndex = 95;
+            this.label20.Text = "Pozicija v LUT";
             // 
             // comboBox5
             // 
@@ -1001,104 +1069,48 @@
             // 
             // chart1
             // 
-            customLabel3.Text = "AAAA";
-            chartArea3.AxisX.CustomLabels.Add(customLabel3);
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
+            customLabel1.Text = "AAAA";
+            chartArea1.AxisX.CustomLabels.Add(customLabel1);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(3, 3);
             this.chart1.Name = "chart1";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.Legend = "Legend1";
-            series9.Name = "Ch1";
-            series10.ChartArea = "ChartArea1";
-            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series10.Legend = "Legend1";
-            series10.Name = "Ch2";
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.Legend = "Legend1";
-            series11.Name = "Ch3";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.Legend = "Legend1";
-            series12.Name = "Ch4";
-            this.chart1.Series.Add(series9);
-            this.chart1.Series.Add(series10);
-            this.chart1.Series.Add(series11);
-            this.chart1.Series.Add(series12);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Ch1";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Ch2";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Ch3";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "Ch4";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
             this.chart1.Size = new System.Drawing.Size(859, 573);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart";
             // 
-            // button7
+            // button18
             // 
-            this.button7.Location = new System.Drawing.Point(14, 288);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(127, 23);
-            this.button7.TabIndex = 97;
-            this.button7.Text = "1000 vrednosti sinusa";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.Button7_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel4.Controls.Add(this.numericUpDown8);
-            this.panel4.Controls.Add(this.label32);
-            this.panel4.Controls.Add(this.button16);
-            this.panel4.Controls.Add(this.label31);
-            this.panel4.Controls.Add(this.button14);
-            this.panel4.Controls.Add(this.button17);
-            this.panel4.Controls.Add(this.label27);
-            this.panel4.Controls.Add(this.label26);
-            this.panel4.Location = new System.Drawing.Point(536, 84);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(307, 116);
-            this.panel4.TabIndex = 95;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(186, 324);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(34, 13);
-            this.label9.TabIndex = 100;
-            this.label9.Text = "Mode";
-            // 
-            // button15
-            // 
-            this.button15.Enabled = false;
-            this.button15.Location = new System.Drawing.Point(15, 340);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(75, 23);
-            this.button15.TabIndex = 98;
-            this.button15.Text = "SEND";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.Button15_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(16, 324);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(96, 13);
-            this.label12.TabIndex = 99;
-            this.label12.Text = "DAC transfer mode";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "Halfmode (en kanal)",
-            "Fullmode (oba kanala)"});
-            this.comboBox4.Location = new System.Drawing.Point(150, 340);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(123, 21);
-            this.comboBox4.TabIndex = 101;
+            this.button18.Location = new System.Drawing.Point(228, 291);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(75, 23);
+            this.button18.TabIndex = 102;
+            this.button18.Text = "Get TCR val";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.Button18_Click);
             // 
             // ArduinoForm
             // 
@@ -1113,9 +1125,11 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -1127,8 +1141,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1210,6 +1222,7 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Button button18;
     }
 }
 

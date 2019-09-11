@@ -169,7 +169,7 @@ namespace ArduinoSerialTest
             //Add pipeline for ADC values to chart, no need to print them to Log
             string msg = System.Text.Encoding.ASCII.GetString(serialBuffer).Trim();
 
-            if (msg.Contains('$')) { //DAQ can accept new LUT valu
+            if (msg.StartsWith("$")) { //DAQ can accept new LUT valu
                 if(msg.Contains("LUT")) this.Invoke((MethodInvoker)delegate { Log(msg); });
                 if (LutVals.Count > 0)
                 {
@@ -196,6 +196,15 @@ namespace ArduinoSerialTest
                         Log("Setting LUT values has finished!"); // runs on UI thread
                     });
                 }
+                return;
+            }
+
+            //DAQ returns #{val} where val is Transmit Counter Register (TCR) value. Could be used to change LUT on the fly(with slow DAC frequency)
+            if (msg.StartsWith("#"))
+            {
+                this.Invoke((MethodInvoker)delegate {
+                    Log("TCR value: "+msg.Substring(1)); // runs on UI thread
+                });
                 return;
             }
             
@@ -457,6 +466,11 @@ namespace ArduinoSerialTest
         private void Button15_Click(object sender, EventArgs e) //DAC transfer mode (fullmode/halfmode). Default on DAQ: fullmode, both channels
         {
             serialPort.Write("P " + comboBox4.SelectedIndex + "\n\r");
+        }
+
+        private void Button18_Click(object sender, EventArgs e) //returns pdc_read_tx_counter. Can be used for setting LUT on the fly.
+        {
+            serialPort.Write("U\n\r");
         }
     }
 }
