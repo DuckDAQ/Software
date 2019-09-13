@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using System.Threading;
+using ArduinoSerialTest.Models;
 
 namespace ArduinoSerialTest
 {
@@ -27,11 +28,9 @@ namespace ArduinoSerialTest
         //For recieving ADC values in BIN mode
         List<byte> serialList = new List<byte>();
         bool newAdcVals = false;
-        //For Chart 
-        System.Timers.Timer ChartT;
-        long TimerTicks;
-        long LastTicks;
-        UInt64 time = 0;
+        //Chart form
+        Chart chart = new Chart();
+
         public ArduinoForm()
         {
             InitializeComponent();
@@ -153,13 +152,14 @@ namespace ArduinoSerialTest
 
                 for (int i = 0; i < serialBuffer.Length; i += 2) { //create short value from two bytes
                     short num = (short)((serialBuffer[i+1] << 8) | serialBuffer[i]);
+
                     AdcList.Add(new AdcMeasurement()
                     {
                         value = (short)(num & 0b111111111111),
                         channel = (byte)(num >> 12)
                     });
                 }
-                try { PopulateChart(AdcList); } catch { }
+                try { chart.PopulateChart(AdcList); } catch { }
                 return;
             }
 
@@ -215,17 +215,9 @@ namespace ArduinoSerialTest
 
         private void button1_Click(object sender, EventArgs e) //ascii
         {
-            TimerTicks = 0;
-            ChartT = new System.Timers.Timer();
-            ChartT.Elapsed += Timer_Tick;
-            ChartT.Interval = 10;
-            ChartT.Start();
-
             serialPort.Write("S\n\r");
         }
-        private void Timer_Tick(object sender, EventArgs e) {
-            TimerTicks++;
-        }
+
         private void button2_Click(object sender, EventArgs e) //prekini vzorcenje
         {
             serialPort.Write("T\n\r");
@@ -326,7 +318,7 @@ namespace ArduinoSerialTest
 
         private void Button13_Click(object sender, EventArgs e) //set DAC Lut repeats
         {
-
+            serialPort.Write($"C {(int)numericUpDown6.Value}\n\r");
         }
 
         private void Button16_Click(object sender, EventArgs e) //Set DAC period in microseconds
@@ -360,60 +352,6 @@ namespace ArduinoSerialTest
             //First send LUT length command. After that, send LUT values
             serialPort.Write("N " + len + "\n\r");
         }
-
-        private void PopulateChart(List<AdcMeasurement> list) {
-            //Najprej najstarejsega poslje, seprau na koncu lista je najstarejsi 
-            for (byte ch = 0; ch < 7; ch += 2)
-            {
-                if (ch == 0) time += (UInt64)numericUpDown1.Value;
-
-                var chVals = list.Where(x => x.channel == ch).ToList();
-                if (chVals.Count == 0) break;
-
-                if (LastTicks == 0)
-                {
-                    //First measurement, only show newest values
-                    this.Invoke((MethodInvoker)delegate { chart1.Series[ch / 2].Points.AddXY(time/100, AdcToVoltage(chVals.Last().value)); });
-                }
-                else
-                {
-                    //var deltaTicks = (TimerTicks - LastTicks) / chVals.Count;
-                    for (byte i = 0; i < chVals.Count; i++)
-                    {
-                        this.Invoke((MethodInvoker)delegate { chart1.Series[ch / 2].Points.AddXY(time/100, AdcToVoltage(chVals[i].value)); });
-                    }
-                }
-
-                //Remove outdated values
-                this.Invoke((MethodInvoker)delegate {
-                    int cnt = chart1.Series[ch / 2].Points.Count;
-                    if (cnt > (numericUpDownBlockSize.Value * 4)) 
-                        for(int i = 0; i < (cnt- (numericUpDownBlockSize.Value * 4)); i++)
-                            chart1.Series[ch / 2].Points.RemoveAt(i);
-                });
-   
-            }
-            this.Invoke((MethodInvoker)delegate {
-                chart1.ChartAreas[0].AxisX.Minimum = chart1.Series[0].Points[0].XValue;
-                //chart1.ChartAreas[0].AxisX.Maximum = TimerTicks;
-                chart1.ChartAreas[0].AxisX.Maximum = time/100;
-            });
-            
-            //LastTicks = TimerTicks;
-        }
-
-        int AdcToVoltage(int measurment) {
-            measurment *= 20000;
-            measurment /= 4095;
-            measurment = 10000 - measurment;
-            return measurment;
-        }
-
-        class AdcMeasurement {
-            public short value { get; set; }
-            public byte channel { get; set; }
-        }
-
         private void Button11_Click_1(object sender, EventArgs e)
         {
             MessageBox.Show( 
