@@ -29,7 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel1 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
             this.label32 = new System.Windows.Forms.Label();
@@ -40,7 +49,6 @@
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button18 = new System.Windows.Forms.Button();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button15 = new System.Windows.Forms.Button();
@@ -102,6 +110,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comPort = new System.Windows.Forms.ComboBox();
             this.connectBtn = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.button18 = new System.Windows.Forms.Button();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
             this.panel3.SuspendLayout();
@@ -112,6 +125,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -119,6 +134,41 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(873, 605);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.Gainsboro;
+            this.tabPage1.Controls.Add(this.panel4);
+            this.tabPage1.Controls.Add(this.panel3);
+            this.tabPage1.Controls.Add(this.panel2);
+            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Controls.Add(this.labelSampleRate);
+            this.tabPage1.Controls.Add(this.labelSpeed);
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.richTextBox1);
+            this.tabPage1.Controls.Add(this.portsRefresh);
+            this.tabPage1.Controls.Add(this.baudRate);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.comPort);
+            this.tabPage1.Controls.Add(this.connectBtn);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(865, 579);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "General";
             // 
             // panel4
             // 
@@ -131,10 +181,10 @@
             this.panel4.Controls.Add(this.button17);
             this.panel4.Controls.Add(this.label27);
             this.panel4.Controls.Add(this.label26);
-            this.panel4.Location = new System.Drawing.Point(545, 89);
+            this.panel4.Location = new System.Drawing.Point(536, 84);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(307, 116);
-            this.panel4.TabIndex = 109;
+            this.panel4.TabIndex = 95;
             // 
             // numericUpDown8
             // 
@@ -181,6 +231,7 @@
             this.button16.TabIndex = 88;
             this.button16.Text = "SEND";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.Button16_Click);
             // 
             // label31
             // 
@@ -200,6 +251,7 @@
             this.button14.TabIndex = 91;
             this.button14.Text = "SEND";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.Button14_Click);
             // 
             // button17
             // 
@@ -210,6 +262,7 @@
             this.button17.TabIndex = 94;
             this.button17.Text = "SEND";
             this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.Button17_Click);
             // 
             // label27
             // 
@@ -252,19 +305,10 @@
             this.panel3.Controls.Add(this.label21);
             this.panel3.Controls.Add(this.richTextBox2);
             this.panel3.Controls.Add(this.comboBox3);
-            this.panel3.Location = new System.Drawing.Point(545, 210);
+            this.panel3.Location = new System.Drawing.Point(536, 205);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(310, 371);
-            this.panel3.TabIndex = 108;
-            // 
-            // button18
-            // 
-            this.button18.Location = new System.Drawing.Point(228, 291);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(75, 23);
-            this.button18.TabIndex = 102;
-            this.button18.Text = "Get TCR val";
-            this.button18.UseVisualStyleBackColor = true;
+            this.panel3.TabIndex = 81;
             // 
             // comboBox4
             // 
@@ -295,6 +339,7 @@
             this.button15.TabIndex = 98;
             this.button15.Text = "SEND";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.Button15_Click);
             // 
             // label12
             // 
@@ -313,6 +358,7 @@
             this.button7.TabIndex = 97;
             this.button7.Text = "1000 vrednosti sinusa";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.Button7_Click);
             // 
             // button11
             // 
@@ -322,6 +368,7 @@
             this.button11.TabIndex = 96;
             this.button11.Text = "?";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.Button11_Click_1);
             // 
             // label20
             // 
@@ -360,9 +407,9 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(155, 12);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(103, 13);
+            this.label23.Size = new System.Drawing.Size(70, 13);
             this.label23.TabIndex = 69;
-            this.label23.Text = "Št. ponovitev (0 = ∞)";
+            this.label23.Text = "Št. ponovitev";
             // 
             // button13
             // 
@@ -373,6 +420,7 @@
             this.button13.TabIndex = 64;
             this.button13.Text = "SEND";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.Button13_Click);
             // 
             // label25
             // 
@@ -401,6 +449,7 @@
             this.button12.TabIndex = 63;
             this.button12.Text = "SEND";
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.Button12_Click);
             // 
             // label21
             // 
@@ -458,10 +507,10 @@
             this.panel2.Controls.Add(this.button9);
             this.panel2.Controls.Add(this.comboBoxADCgain);
             this.panel2.Controls.Add(this.label14);
-            this.panel2.Location = new System.Drawing.Point(286, 209);
+            this.panel2.Location = new System.Drawing.Point(277, 204);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(242, 372);
-            this.panel2.TabIndex = 107;
+            this.panel2.TabIndex = 80;
             // 
             // button5
             // 
@@ -472,6 +521,7 @@
             this.button5.TabIndex = 26;
             this.button5.Text = "SEND";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label7
             // 
@@ -509,6 +559,7 @@
             this.buttonBlockSize.TabIndex = 58;
             this.buttonBlockSize.Text = "SEND";
             this.buttonBlockSize.UseVisualStyleBackColor = true;
+            this.buttonBlockSize.Click += new System.EventHandler(this.buttonBlockSize_Click);
             // 
             // label10
             // 
@@ -528,6 +579,7 @@
             this.button4.TabIndex = 25;
             this.button4.Text = "SEND";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // numericUpDownBlockSize
             // 
@@ -555,6 +607,7 @@
             this.button6.TabIndex = 27;
             this.button6.Text = "SEND";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // numericUpDown2
             // 
@@ -615,6 +668,7 @@
             this.button10.TabIndex = 53;
             this.button10.Text = "SEND";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // label13
             // 
@@ -643,6 +697,7 @@
             this.button8.TabIndex = 40;
             this.button8.Text = "SEND";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // label17
             // 
@@ -768,6 +823,7 @@
             this.button9.TabIndex = 46;
             this.button9.Text = "SEND";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // comboBoxADCgain
             // 
@@ -801,10 +857,10 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Location = new System.Drawing.Point(286, 88);
+            this.panel1.Location = new System.Drawing.Point(277, 83);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(242, 117);
-            this.panel1.TabIndex = 106;
+            this.panel1.TabIndex = 79;
             // 
             // numericUpDown1
             // 
@@ -842,6 +898,7 @@
             this.button1.TabIndex = 15;
             this.button1.Text = "SEND";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -881,6 +938,7 @@
             this.button2.TabIndex = 23;
             this.button2.Text = "SEND";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -891,6 +949,7 @@
             this.button3.TabIndex = 24;
             this.button3.Text = "SEND";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label11
             // 
@@ -904,48 +963,49 @@
             // labelSampleRate
             // 
             this.labelSampleRate.AutoSize = true;
-            this.labelSampleRate.Location = new System.Drawing.Point(195, 60);
+            this.labelSampleRate.Location = new System.Drawing.Point(186, 55);
             this.labelSampleRate.Name = "labelSampleRate";
             this.labelSampleRate.Size = new System.Drawing.Size(41, 13);
-            this.labelSampleRate.TabIndex = 105;
+            this.labelSampleRate.TabIndex = 78;
             this.labelSampleRate.Text = "label19";
             // 
             // labelSpeed
             // 
             this.labelSpeed.AutoSize = true;
-            this.labelSpeed.Location = new System.Drawing.Point(130, 60);
+            this.labelSpeed.Location = new System.Drawing.Point(121, 55);
             this.labelSpeed.Name = "labelSpeed";
             this.labelSpeed.Size = new System.Drawing.Size(41, 13);
-            this.labelSpeed.TabIndex = 104;
+            this.labelSpeed.TabIndex = 77;
             this.labelSpeed.Text = "label19";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(34, 45);
+            this.label3.Location = new System.Drawing.Point(25, 40);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 31);
-            this.label3.TabIndex = 103;
+            this.label3.TabIndex = 70;
             this.label3.Text = "Log";
             // 
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.richTextBox1.Location = new System.Drawing.Point(17, 88);
+            this.richTextBox1.Location = new System.Drawing.Point(8, 83);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(250, 495);
-            this.richTextBox1.TabIndex = 102;
+            this.richTextBox1.TabIndex = 69;
             this.richTextBox1.Text = "";
             // 
             // portsRefresh
             // 
-            this.portsRefresh.Location = new System.Drawing.Point(226, 22);
+            this.portsRefresh.Location = new System.Drawing.Point(217, 17);
             this.portsRefresh.Name = "portsRefresh";
             this.portsRefresh.Size = new System.Drawing.Size(61, 23);
-            this.portsRefresh.TabIndex = 101;
+            this.portsRefresh.TabIndex = 68;
             this.portsRefresh.Text = "Refresh";
             this.portsRefresh.UseVisualStyleBackColor = true;
+            this.portsRefresh.Click += new System.EventHandler(this.portsRefresh_Click);
             // 
             // baudRate
             // 
@@ -955,69 +1015,116 @@
             "1000000",
             "19200",
             "9600"});
-            this.baudRate.Location = new System.Drawing.Point(452, 22);
+            this.baudRate.Location = new System.Drawing.Point(443, 17);
             this.baudRate.Name = "baudRate";
             this.baudRate.Size = new System.Drawing.Size(133, 21);
-            this.baudRate.TabIndex = 100;
+            this.baudRate.TabIndex = 67;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(388, 25);
+            this.label2.Location = new System.Drawing.Point(379, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 99;
+            this.label2.TabIndex = 66;
             this.label2.Text = "Boud Rate";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 25);
+            this.label1.Location = new System.Drawing.Point(31, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 98;
+            this.label1.TabIndex = 65;
             this.label1.Text = "COM Port";
             // 
             // comPort
             // 
             this.comPort.FormattingEnabled = true;
-            this.comPort.Location = new System.Drawing.Point(99, 22);
+            this.comPort.Location = new System.Drawing.Point(90, 17);
             this.comPort.Name = "comPort";
             this.comPort.Size = new System.Drawing.Size(121, 21);
-            this.comPort.TabIndex = 97;
+            this.comPort.TabIndex = 64;
             // 
             // connectBtn
             // 
-            this.connectBtn.Location = new System.Drawing.Point(679, 22);
+            this.connectBtn.Location = new System.Drawing.Point(670, 17);
             this.connectBtn.Name = "connectBtn";
             this.connectBtn.Size = new System.Drawing.Size(116, 37);
-            this.connectBtn.TabIndex = 96;
+            this.connectBtn.TabIndex = 63;
             this.connectBtn.Text = "Connect";
             this.connectBtn.UseVisualStyleBackColor = true;
+            this.connectBtn.Click += new System.EventHandler(this.connectBtn_Click);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.chart1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(865, 579);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Chart";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // chart1
+            // 
+            customLabel1.Text = "AAAA";
+            chartArea1.AxisX.CustomLabels.Add(customLabel1);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(3, 3);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Ch1";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Ch2";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Ch3";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "Ch4";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
+            this.chart1.Size = new System.Drawing.Size(859, 573);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart";
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(228, 291);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(75, 23);
+            this.button18.TabIndex = 102;
+            this.button18.Text = "Get TCR val";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.Button18_Click);
             // 
             // ArduinoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 605);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.labelSampleRate);
-            this.Controls.Add(this.labelSpeed);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.portsRefresh);
-            this.Controls.Add(this.baudRate);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comPort);
-            this.Controls.Add(this.connectBtn);
+            this.Controls.Add(this.tabControl1);
             this.Name = "ArduinoForm";
             this.Text = "OpenDAQ";
             this.Load += new System.EventHandler(this.ArduinoForm_Load);
             this.Leave += new System.EventHandler(this.ArduinoForm_Leave);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
@@ -1032,31 +1139,17 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.NumericUpDown numericUpDown8;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.NumericUpDown numericUpDown6;
         private System.Windows.Forms.Label label23;
@@ -1111,6 +1204,25 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comPort;
         private System.Windows.Forms.Button connectBtn;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.NumericUpDown numericUpDown8;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Button button18;
     }
 }
 
