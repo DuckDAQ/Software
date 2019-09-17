@@ -326,7 +326,7 @@ namespace ArduinoSerialTest
 
         private void Button13_Click(object sender, EventArgs e) //set DAC Lut repeats
         {
-
+            serialPort.Write($"C {(int)numericUpDown6.Value}\n\r");
         }
 
         private void Button16_Click(object sender, EventArgs e) //Set DAC period in microseconds
