@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel1 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel4 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -238,9 +238,9 @@
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(17, 73);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(67, 13);
+            this.label31.Size = new System.Drawing.Size(80, 13);
             this.label31.TabIndex = 87;
-            this.label31.Text = "DAC perioda";
+            this.label31.Text = "Set DAC period";
             // 
             // button14
             // 
@@ -268,21 +268,21 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(145, 16);
+            this.label27.Location = new System.Drawing.Point(162, 16);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(105, 13);
+            this.label27.Size = new System.Drawing.Size(62, 13);
             this.label27.TabIndex = 93;
-            this.label27.Text = "Prekini vzorčenje";
+            this.label27.Text = "Stop DAC";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(34, 17);
+            this.label26.Location = new System.Drawing.Point(49, 16);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(98, 13);
+            this.label26.Size = new System.Drawing.Size(63, 13);
             this.label26.TabIndex = 92;
-            this.label26.Text = "Začni vzorčenje";
+            this.label26.Text = "Start DAC";
             // 
             // panel3
             // 
@@ -324,11 +324,11 @@
             // 
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Items.AddRange(new object[] {
-            "Halfmode (en kanal)",
-            "Fullmode (oba kanala)"});
-            this.comboBox4.Location = new System.Drawing.Point(150, 340);
+            "Halfmode (one channel)",
+            "Fullmode (both channels)"});
+            this.comboBox4.Location = new System.Drawing.Point(123, 340);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(123, 21);
+            this.comboBox4.Size = new System.Drawing.Size(150, 21);
             this.comboBox4.TabIndex = 101;
             // 
             // label9
@@ -366,7 +366,7 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(127, 23);
             this.button7.TabIndex = 97;
-            this.button7.Text = "1000 vrednosti sinusa";
+            this.button7.Text = "1000 values of sinus";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.Button7_Click);
             // 
@@ -385,9 +385,9 @@
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(204, 81);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(76, 13);
+            this.label20.Size = new System.Drawing.Size(67, 13);
             this.label20.TabIndex = 95;
-            this.label20.Text = "Pozicija v LUT";
+            this.label20.Text = "LUT position";
             // 
             // comboBox5
             // 
@@ -415,11 +415,11 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(155, 12);
+            this.label23.Location = new System.Drawing.Point(177, 11);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(70, 13);
+            this.label23.Size = new System.Drawing.Size(47, 13);
             this.label23.TabIndex = 69;
-            this.label23.Text = "Št. ponovitev";
+            this.label23.Text = "Repeats";
             // 
             // button13
             // 
@@ -437,9 +437,9 @@
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(16, 11);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(113, 13);
+            this.label25.Size = new System.Drawing.Size(135, 13);
             this.label25.TabIndex = 65;
-            this.label25.Text = "Število LUT ponovitev";
+            this.label25.Text = "Set number of LUT repeats";
             // 
             // label22
             // 
@@ -464,11 +464,11 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(11, 81);
+            this.label21.Location = new System.Drawing.Point(17, 80);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(113, 13);
+            this.label21.Size = new System.Drawing.Size(81, 13);
             this.label21.TabIndex = 51;
-            this.label21.Text = "Nastavi LUT vrednosti";
+            this.label21.Text = "Set LUT values";
             // 
             // richTextBox2
             // 
@@ -538,27 +538,27 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(9, 158);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(193, 13);
+            this.label7.Size = new System.Drawing.Size(212, 13);
             this.label7.TabIndex = 19;
-            this.label7.Text = "Nastavi število vzorcev za povprečenje";
+            this.label7.Text = "Set number of measurements for averaging ";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(9, 105);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(93, 13);
+            this.label19.Size = new System.Drawing.Size(73, 13);
             this.label19.TabIndex = 59;
-            this.label19.Text = "Nastavi block size";
+            this.label19.Text = "Set block size";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(9, 267);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(133, 13);
+            this.label8.Size = new System.Drawing.Size(114, 13);
             this.label8.TabIndex = 20;
-            this.label8.Text = "Nastavi zaporedje kanalov";
+            this.label8.Text = "Set channel sequence";
             // 
             // buttonBlockSize
             // 
@@ -576,9 +576,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(9, 321);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 13);
+            this.label10.Size = new System.Drawing.Size(52, 13);
             this.label10.TabIndex = 22;
-            this.label10.Text = "Nastavi način";
+            this.label10.Text = "Set mode";
             // 
             // button4
             // 
@@ -685,18 +685,18 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(9, 213);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(168, 13);
+            this.label13.Size = new System.Drawing.Size(144, 13);
             this.label13.TabIndex = 39;
-            this.label13.Text = "Nastavi število zaporednih meritev";
+            this.label13.Text = "Set number of measurements";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(9, 57);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(88, 13);
+            this.label18.Size = new System.Drawing.Size(96, 13);
             this.label18.TabIndex = 52;
-            this.label18.Text = "Nastavi ADC res.";
+            this.label18.Text = "Set ADC resolution";
             // 
             // button8
             // 
@@ -852,9 +852,9 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(9, 10);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(91, 13);
+            this.label14.Size = new System.Drawing.Size(71, 13);
             this.label14.TabIndex = 47;
-            this.label14.Text = "Nastavi ADC gain";
+            this.label14.Text = "Set ADC gain";
             // 
             // panel1
             // 
@@ -914,30 +914,30 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(5, 18);
+            this.label4.Location = new System.Drawing.Point(18, 17);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 13);
+            this.label4.Size = new System.Drawing.Size(63, 13);
             this.label4.TabIndex = 16;
-            this.label4.Text = "Začni vzorčenje";
+            this.label4.Text = "Start ADC";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(116, 17);
+            this.label5.Location = new System.Drawing.Point(130, 17);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 13);
+            this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 17;
-            this.label5.Text = "Prekini vzorčenje";
+            this.label5.Text = "Stop ADC";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(5, 69);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 13);
+            this.label6.Size = new System.Drawing.Size(80, 13);
             this.label6.TabIndex = 18;
-            this.label6.Text = "Nastavi periodo vzorčenja";
+            this.label6.Text = "Set ADC period";
             // 
             // button2
             // 
@@ -1079,35 +1079,35 @@
             // 
             // chart1
             // 
-            customLabel1.Text = "AAAA";
-            chartArea1.AxisX.CustomLabels.Add(customLabel1);
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            customLabel4.Text = "AAAA";
+            chartArea4.AxisX.CustomLabels.Add(customLabel4);
+            chartArea4.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea4);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend4.Name = "Legend1";
+            this.chart1.Legends.Add(legend4);
             this.chart1.Location = new System.Drawing.Point(3, 3);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Ch1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Ch2";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "Ch3";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "Ch4";
-            this.chart1.Series.Add(series1);
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
-            this.chart1.Series.Add(series4);
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series13.Legend = "Legend1";
+            series13.Name = "Ch1";
+            series14.ChartArea = "ChartArea1";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series14.Legend = "Legend1";
+            series14.Name = "Ch2";
+            series15.ChartArea = "ChartArea1";
+            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series15.Legend = "Legend1";
+            series15.Name = "Ch3";
+            series16.ChartArea = "ChartArea1";
+            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series16.Legend = "Legend1";
+            series16.Name = "Ch4";
+            this.chart1.Series.Add(series13);
+            this.chart1.Series.Add(series14);
+            this.chart1.Series.Add(series15);
+            this.chart1.Series.Add(series16);
             this.chart1.Size = new System.Drawing.Size(859, 573);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart";

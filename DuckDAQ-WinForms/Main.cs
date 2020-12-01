@@ -416,11 +416,11 @@ namespace ArduinoSerialTest
 
         private void Button11_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show( 
-                "Vedno zapišemo v DAC 2 vrednosti (par) iz LUT tabele, sodo in liho. Najprej bo DAC pretvoril sodo, takoj zatem (~20 clock cycles) bo pretvoril liho vrednost."
-                +"\n\nČe je izbran '1 kanal', mora biti izbran Halfmode transfer, kar pomeni da je LUT za ta kanal lahko dolg 2kB in hitrost višja (brez conversiona drugega kanala)"
+            MessageBox.Show(
+                "We always write in DAC 2 values (pair) from the LUT table, even and odd. First, the DAC will convert the soda, immediately afterwards (~ 20 clock cycles) it will convert the odd value."
+                + "\n\nIf '1 channel' is selected, HalfMode transfer must be selected, which means that the LUT for this channel can be 2kB long and the speed higher (without conversation of the second channel)"
                 ,
-                "Pozicija v LUT tabeli",
+                "Position in LUT table",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
